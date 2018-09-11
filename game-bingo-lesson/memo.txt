@@ -1,0 +1,16 @@
+slice([start], [end]);
+>>マッチした要素集合から、指定した部分を取り出します。
+
+splice();
+append();
+
+クリックイベント
+$("").click(function(){});
+$("").on('click', function(){});
+>>複数指定可能なため、後者の書き方で書くことを進める。
+
+parseInt(result, 10);
+>>resultをint型に変換する。10進数。
+
+$sound_pause[0].currentTime = 0;
+再生の開始タイムを最初に戻す。
