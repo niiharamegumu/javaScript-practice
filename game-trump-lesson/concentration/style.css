@@ -49,3 +49,7 @@ img {
   transform:rotateY(0deg);
   transition: opacity 100ms 150ms, transform 300ms 150ms;
 }
+
+.hit {
+	visibility: hidden;
+}

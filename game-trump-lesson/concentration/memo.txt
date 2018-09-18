@@ -14,3 +14,24 @@ $table.on("click", "li", function(){
 });
 >>クリックイベントのtargetを指定する。
 >>
+---2018.0918---------------------------
+setTimeout(func, m);
+>>単発の繰り返し。
+setInterval(func, m);
+>>繰り返し。
+substring();
+data();
+attr();
+
+return false;
+
+無名関数
+コールバック関数
+
+css...jsでcssはいじらない。
+opacity: 0;
+visibility : hidden;
+要素は消えない
+
+display: none;
+要素は消える
