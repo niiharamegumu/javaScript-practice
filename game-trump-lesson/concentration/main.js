@@ -5,7 +5,13 @@ $(function(){
 		$table = $("#table"),
 		$li = $("<li>"),
 		$img = $("<img>"),
+		$timer = $("#timer"),
 		kind = ["c", "d", "h", "s"],
+		formatTime = 120,
+		nowTime,
+		min,
+		sec,
+		time,
 		cards = [],
 		select_index = [],
 		select_kind = [],
@@ -20,7 +26,7 @@ $(function(){
 
 	shuffle();
 
-	for(var i = 0; i <cards.length; i++){
+	for(i = 0; i <cards.length; i++){
 		$li
 		.clone()
 		.data("num", cards[i].replace(/[^0-9]/g, ""))
@@ -41,12 +47,23 @@ $(function(){
 		.appendTo($table);
 	}
 
+	$timer.find("#min").text(Math.floor(formatTime / 60));
+	$timer.find("#sec").text(("0" + Math.floor(formatTime % 60)).slice(-2));
+
+	$timer.on("click", "#button", function(){
+		if(formatTime > 0){
+			time = setInterval(timer, 1000);
+		}
+	});
+
+
 	$table.on("click", "li", function(){
 		if(select_index.length >= 2){
 			return false;
 		}
 
 		$(this).toggleClass("is-surface").toggleClass("is-reverse");
+
 		if(select_num === ""){
 			select_num = $(this).data("num");
 			select_kind = $(this).data("kind");
@@ -56,14 +73,26 @@ $(function(){
 				select_index.push($(this).index());
 				if ($(this).data("num") === select_num){
 					console.log($(this).data("kind") + $(this).data("num") + ":" + select_kind + select_num + " →　○");
-					setTimeout(card_ok, 1500);
+					setTimeout(card_ok, 1000);
 				} else {
 					console.log($(this).data("kind") + $(this).data("num") + ":" + select_kind + select_num + " →　☓");
-					setTimeout(card_reverse, 1500);
+					setTimeout(card_reverse, 1000);
 				}
 			}
 		}
 	});
+
+	function timer(){
+		nowTime = --formatTime;
+		min = Math.floor(nowTime / 60);
+		sec = Math.floor(nowTime % 60);
+		$timer.find($("#min")).text(min);
+		$timer.find($("#sec")).text(("0" + sec).slice(-2));
+		if(formatTime < 0){
+			clearInterval(time);
+			$timer.text("TIME OVER");
+		}
+	}
 
 	function card_ok() {
 		$table.find("li").eq(select_index[0]).addClass("hit");
