@@ -47,7 +47,7 @@ $(function(){
 		.appendTo($table);
 	}
 
-	$timer.find("#min").text(Math.floor(formatTime / 60));
+	$timer.find("#min").text(("0" + Math.floor(formatTime / 60)).slice(-2));
 	$timer.find("#sec").text(("0" + Math.floor(formatTime % 60)).slice(-2));
 
 	$timer.on("click", "#button", function(){
@@ -86,7 +86,7 @@ $(function(){
 		nowTime = --formatTime;
 		min = Math.floor(nowTime / 60);
 		sec = Math.floor(nowTime % 60);
-		$timer.find($("#min")).text(min);
+		$timer.find($("#min")).text(("0" + min).slice(-2));
 		$timer.find($("#sec")).text(("0" + sec).slice(-2));
 		if(formatTime < 0){
 			clearInterval(time);
