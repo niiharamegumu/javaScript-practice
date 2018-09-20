@@ -1,0 +1,10 @@
+---2018.09.20-------------------------
+・変数に多くの処理を格納することで、処理速度を早めることができる。
+>>　cards_len = cards.length;
+・多次元配列（少ないほうがいい。）
+>>https://www.terakoya.work/javascript-array-basis/
+>>キュー・スタック
+
+
+??
+work_arrayがなぜ必要だったのか。
