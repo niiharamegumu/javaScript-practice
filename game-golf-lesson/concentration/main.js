@@ -33,7 +33,7 @@ $(function(){
 					.clone()
 					.attr("src", "../images/" + work_array[j])
 			)
-			.appendTo($table.find("ul").eq(i))
+			.appendTo($table.find("ul").eq(i));
 		}
 		stage_cards.push(work_array);
 		work_array=[];
