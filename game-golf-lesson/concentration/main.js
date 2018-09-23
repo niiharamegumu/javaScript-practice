@@ -21,6 +21,7 @@ $(function(){
 	cards_len = cards.length;
 	shuffle();
 
+	console.log(cards_len);
 
 	for(var i = 0; i < 7; i++){
 		$ul.clone().appendTo($table);
@@ -34,7 +35,7 @@ $(function(){
 					.clone()
 					.attr("src", "../images/" + work_array[j])
 			)
-			.appendTo($table.find("ul").eq(i))
+			.appendTo($table.find("ul").eq(i));
 		}
 		stage_cards.push(work_array);
 		work_array=[];
