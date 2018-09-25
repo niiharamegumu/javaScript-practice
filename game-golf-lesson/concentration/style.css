@@ -6,12 +6,18 @@
 	display: flex;
 	justify-content: space-between;
 }
-#deck {
+.wrapper .card-set {
+	justify-content: flex-start;
+	margin: 10px 0 0;
+}
+#deck,
+#set {
 	display: block;
-	margin-top: 50px; 
+	margin-right: 35px;
 	width: 70px;
 }
-#deck img {
+#deck img,
+#set img {
 	width: 100%;
 }
 .wrapper ul {
