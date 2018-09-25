@@ -5,11 +5,17 @@ $(function(){
 		$li = $("<li>"),
 		$ul = $("<ul>"),
 		$img = $("<img>"),
+		$deck = $("#deck"),
+		$set = $("#set").find("img"),
 		kind = ["c", "d", "h", "s"],
 		cards = [],
 		stage_cards = [],
 		work_array = [],
-		cards_len;
+		cards_len,
+		set_flag = false,
+		col_length,
+		set_card,
+		compare_card;
 
 
 	for(var i = 0; i < 4; i++){
@@ -27,7 +33,6 @@ $(function(){
 			work_array.push(cards.pop());
 			$li
 			.clone()
-			.data("num", work_array[j].replace(/[^0-9]/g, ""))
 			.append(
 				$img
 					.clone()
@@ -38,10 +43,31 @@ $(function(){
 		stage_cards.push(work_array);
 		work_array=[];
 	}
-	// console.log(cards);
-	// console.log(stage_cards);
 
+	$deck.on("click", function(){
+		if(!set_flag){
+			set_flag = true;
+			set_card = cards.pop();
+			$set.attr("src", "../images/" + set_card);
+			compareCards(set_card.replace(/[^0-9]/g, ""));
+		}
+	});
 
+	function compareCards(set_num){
+		set_num = parseInt(set_num, 10);
+		for(var i = 0; i < 7; i++){
+			col_length = stage_cards[i].length - 1;
+			compare_card = stage_cards[i][col_length].replace(/[^0-9]/g, "");
+			compare_card = parseInt(compare_card, 10);
+
+			if(set_num === compare_card + 1){
+				console.log(i);
+			}
+			if(set_num === compare_card - 1){
+				console.log(i);
+			}
+		}
+	}
 
 	function shuffle(){
 		var
