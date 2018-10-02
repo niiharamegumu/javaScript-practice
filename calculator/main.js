@@ -30,12 +30,9 @@
 
 	for(i = 0; i < $calculation_len; i++){
 		$calculation[i].onclick = function(){
+			calculation_type = this.textContent;
 			if(calculation){
 				set_array();
-				calculation_type = this.textContent;
-			} else {
-				calculation_type = this.textContent;
-				calculation = true;
 			}
 		};
 	}
