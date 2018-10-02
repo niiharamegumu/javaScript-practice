@@ -23,16 +23,19 @@
 			$total.textContent = this.textContent;
 			total_string += $total.textContent;
 			$total.textContent = total_string;
+			calculation = true;
 		};
 	}
 
 
 	for(i = 0; i < $calculation_len; i++){
 		$calculation[i].onclick = function(){
-			set_array();
-			if(total_num.length == 1){
-				calculation = true;
+			if(calculation){
+				set_array();
 				calculation_type = this.textContent;
+			} else {
+				calculation_type = this.textContent;
+				calculation = true;
 			}
 		};
 	}
@@ -55,8 +58,10 @@
 				result = total_num[0] / total_num[1];
 				break;
 		}
-			$total.textContent = result;
-			calculation = false;
+		total_num[0] = result;
+		total_num.pop();
+		$total.textContent = result;
+		calculation = false;
 		};
 
 
