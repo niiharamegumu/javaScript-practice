@@ -41,6 +41,26 @@
 		if(total_num.length == 1 && calculation){
 			set_array();
 		}
+		get_result();
+	};
+
+
+	$clear.onclick = function(){
+		total_string = "";
+		total_num = [];
+		calculation = false;
+		calculation_type = "";
+		$total.textContent = "0";
+	};
+
+
+	function set_array(){
+		total_num.push(Number.parseInt(total_string, 10));
+		total_string = "";
+	}
+
+
+	function get_result(){
 		switch(calculation_type){
 			case "+" :
 				result = total_num[0] + total_num[1];
@@ -59,19 +79,5 @@
 		total_num.pop();
 		$total.textContent = result;
 		calculation = false;
-		};
-
-
-	$clear.onclick = function(){
-		total_string = "";
-		total_num = [];
-		calculation = false;
-		calculation_type = "";
-		$total.textContent = "0";
-	};
-
-	function set_array(){
-		total_num.push(Number.parseInt(total_string, 10));
-		total_string = "";
 	}
 }());
