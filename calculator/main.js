@@ -23,16 +23,16 @@
 			$total.textContent = this.textContent;
 			total_string += $total.textContent;
 			$total.textContent = total_string;
+			calculation = true;
 		};
 	}
 
 
 	for(i = 0; i < $calculation_len; i++){
 		$calculation[i].onclick = function(){
-			set_array();
-			if(total_num.length == 1){
-				calculation = true;
-				calculation_type = this.textContent;
+			calculation_type = this.textContent;
+			if(calculation){
+				set_array();
 			}
 		};
 	}
@@ -41,6 +41,26 @@
 		if(total_num.length == 1 && calculation){
 			set_array();
 		}
+		get_result();
+	};
+
+
+	$clear.onclick = function(){
+		total_string = "";
+		total_num = [];
+		calculation = false;
+		calculation_type = "";
+		$total.textContent = "0";
+	};
+
+
+	function set_array(){
+		total_num.push(Number.parseInt(total_string, 10));
+		total_string = "";
+	}
+
+
+	function get_result(){
 		switch(calculation_type){
 			case "+" :
 				result = total_num[0] + total_num[1];
@@ -55,21 +75,9 @@
 				result = total_num[0] / total_num[1];
 				break;
 		}
-			$total.textContent = result;
-			calculation = false;
-		};
-
-
-	$clear.onclick = function(){
-		total_string = "";
-		total_num = [];
+		total_num[0] = result;
+		total_num.pop();
+		$total.textContent = result;
 		calculation = false;
-		calculation_type = "";
-		$total.textContent = "0";
-	};
-
-	function set_array(){
-		total_num.push(Number.parseInt(total_string, 10));
-		total_string = "";
 	}
 }());
