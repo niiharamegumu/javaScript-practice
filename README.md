@@ -13,3 +13,5 @@ javaScript practice  programming.
 ### Product Name
 - ImageUpload
 選択した画像がwindow上に表示される。
+- getGitRepository
+github APIを使って選択した言語のリポジトリを出力する。
