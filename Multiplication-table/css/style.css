@@ -1,0 +1,11 @@
+table, tr, td {
+    border: solid 1px;
+}
+
+td {
+    padding: 5px;
+}
+
+.even {
+    background-color: #F5F5F5;
+}
