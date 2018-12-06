@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.number {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  width: 500px;
+}
+.number li {
+  align-items: center;
+  border: solid 1px #004c8c;
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
+  height: 114px;
+  margin: 1px;
+  width: 114px;
+}
+.wrapper-button {
+  text-align: center;
+  margin-top: 20px;
+}
+.wrapper-button button {
+  background-color: #000;
+  border-radius: 50%;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 26px;
+  height: 100px;
+  margin: 0 10px;
+  width: 100px;
+}
+.wrapper-button button[disabled] {
+  background-color: #000;
+  color: #000;
+  cursor: not-allowed;
+}
+.random {
+  background-color: #ef8686;
+  color: #ddd;
+}
+.hit {
+  background-color: #fc4444;
+  color: #fff;
+}
