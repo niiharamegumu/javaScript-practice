@@ -62,9 +62,9 @@ $(function(){
     for(var i = 1; i <= max; i++) {
       bingo.push(i);
     }
-  $number
-    .find("li")
-    .removeClass("random hit");
+    $number
+      .find("li")
+      .removeClass("random hit");
   });
 
 
